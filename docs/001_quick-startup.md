@@ -59,7 +59,7 @@ sudo pip3 install odrive
 >
 > **解决办法**
 > ```
-> pip install --upgrad setptools
+> pip install --upgrade setptools
 > ```
 3. 查看设备管理器规则文件是否已自动更新，否则手动添加
 ```
@@ -75,3 +75,16 @@ echo "PATH=$PATH:~/.local/bin/" >> ~/.bashrc
 
 基础功能调试
 ===
+启动 `odrivetool` 工具包
+---
+开启新终端窗口，键入以下代码启动 ODrive 的主交互工具界面
+```
+odrivetool
+```
+<img src="./images/image_001-01.png" width="60%">
+
+通过 USB 线缆连接 ODrive 电机驱动至主机，等待终端返回确认已连接 ODrive 的信息
+```
+Connected to ODrive *serial number* as odrv0
+```
+<img src="./images/image_001-02.png" width="60%">
