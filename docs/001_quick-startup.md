@@ -1,7 +1,8 @@
-基础硬件配置
-===
-元件清单
----
+# 快速入门
+
+## 基础硬件配置
+
+### 元件清单
 |元件|描述|数据表|数量|
 |:---:|:---:|:---:|:---:|
 |电源|24V||1|
@@ -15,14 +16,12 @@
 |紧固件 2|M3 8mm for plate to enclosure||4|
 |紧固件 3|M4 8mm for plate to motor||4|
 
-工具清单
----
+### 工具清单
 |工具|描述|数据表|数量|
 |:---:|:---:|:---:|:---:|
 |||||
 
-基础硬件搭设
-===
+## 基础硬件搭设
 
 ### 连接电机
 
@@ -31,60 +30,63 @@
 ### 连接电机驱动
 
 
-配置调试系统
-===
-下载安装 ODrive 工具包
----
+## 下载安装 ODrive 工具包
 
-## Linux
+### Linux
 以 Ubuntu 16.04 系统为例
 
-1. 安装 Python 3
-```
+1. 安装 [Python 3](https://www.python.org/downloads/)
+```bash
 sudo apt install python3
 sudo apt install python3 python3-pip
 ```
 2. 安装 ODrive 工具包
-```
+```bash
 sudo pip3 install odrive
 ```
-> 安装过程可能出现报错
+> :warning: 安装过程可能出现报错
 >
 > **报错信息**
 >
-> ```
+> ```bash
 > GET ERROR: Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-4w6I54yu/matplotlib/
 > ```
 > 报错原因可能是由于当前 `setuptools` 版本过旧
 >
 > **解决办法**
-> ```
+> ```bash
 > pip install --upgrade setptools
 > ```
 3. 查看设备管理器规则文件是否已自动更新，否则手动添加
-```
+```bash
  echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="1209", ATTR{idProduct}=="0d[0-9][0-9]", MODE="0666"' | sudo tee /etc/udev/rules.d/91-odrive.rules
  sudo udevadm control --reload-rules
  sudo udevadm trigger
 ```
 4. 在 bash 中添加 odrivetool 的路径
-```
+```bash
 echo "PATH=$PATH:~/.local/bin/" >> ~/.bashrc
 ```
 
-
-基础功能调试
-===
-启动 `odrivetool` 工具包
+## 启动 `odrivetool` 工具包
 ---
 开启新终端窗口，键入以下代码启动 ODrive 的主交互工具界面
-```
+```bash
 odrivetool
 ```
 <img src="./images/image_001-01.png" width="60%">
 
 通过 USB 线缆连接 ODrive 电机驱动至主机，等待终端返回确认已连接 ODrive 的信息
-```
-Connected to ODrive *serial number* as odrv0
+```markdown
+Connected to ODrive SERIAL_NUMBER as odrv0
 ```
 <img src="./images/image_001-02.png" width="60%">
+
+## 基础设定
+
+### 查看驱动板供电电压
+### 配置电机
+### 电机的位置控制
+### 其他控制模式
+
+## 监视时钟
