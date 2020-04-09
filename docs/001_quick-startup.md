@@ -44,7 +44,9 @@ sudo apt install python3 python3-pip
 ```bash
 sudo pip3 install odrive
 ```
-> :warning: 安装过程可能出现报错
+> :warning:
+>
+> 安装过程可能出现报错
 >
 > **报错信息**
 >
