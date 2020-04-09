@@ -165,3 +165,7 @@ odrv0.reboot()
 ## 其他控制模式
 
 ## 监视时钟
+
+```
+sudo apt install python3-tk
+```
