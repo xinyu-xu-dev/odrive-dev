@@ -41,8 +41,7 @@ data_rate = 100
 plot_rate = 10
 num_samples = 1000
 ```
-> :warning:
->
+
 > <details><summary markdown="span">:warning:  调用 Liveplotter 过程可能出现报错</summary><div markdown="block">
 > **报错信息**
 > ```bash
