@@ -179,20 +179,66 @@ odrv0.axis0.requested_state = AXIS_STATE_FULL_CALIBRATION_SEQUENCE
 ### 闭环控制程序
 ```
 odrv0.axis0.requested_state = AXIS_STATE_CLOSED_LOOP_CONTROL
+odrv0.axis0.controller.pos setpoint = 设定值
 ```
 
 ## 其他控制模式
 
 默认的控制模式为基于绝对编码器返回值的不经信号滤波处理的位置控制。除此以外，ODrive 还提供以下控制模式
 
+- [轨迹控制](#轨迹控制)
+- [给定位置范围的位置控制](#给定位置范围的位置控制)
+- [速度控制](#速度控制)
+- [给定加速度的速度控制](#给定加速度的速度控制)
+- [电流控制](#电流控制)
+
 ### 轨迹控制
 
+当电机处于位置控制模式时，使用 `move_to_pos` 和 `move_incremental` 功能对电机进行控制。详细信息请查看 [**使用说明**](#使用说明) 部分。
+
+该模式可以获得流畅的加速、滑行、减速的运动控制。通过纯位置控制，控制器可以实现尽可能迅速的响应速度。可以使用轨迹对闭环控制器进行调节，从而使其在保持流畅运动的同时减少震荡。
+
+#### 参数设定
+
+```bash
+odrv0.axis0.trap_traj.config.vel_limit = 设定值 (计数/秒)
+odrv0.axis0.trap_traj.config.accel_limit = 设定值 (计数/秒^2)
+odrv0.axis0.trap_traj.config.decel_limit = 设定值 (计数/秒^2)
+odrv0.axis0.trap_traj.config.A_per_css = 设定值
+```
+其中
+
+`vel_limit` 是最大设计运行速度。    
+`accel_limit` 是最大设计运行加速度。    
+`decel_limit` 是最大设计运行减速度。    
+`A_per_css` 是电机运行加速度与电机电流的相关系数。默认值为 0 。该参数为可选设定值，可用于提升系统反应性能。当系统负载改变后，该值需要进行相应调整。
+
+#### 使用说明
+
+`move_to_pos` 功能用于控制电机运行至绝对位置。
+```bash
+odrv0.axis0.controller.move_to_pos(设定值)
+```
+
+`move_incremental` 功能用于控制电机运行至相对位置。
+```bash
+from_goal_point = 设定值 (True/False)
+odrv0.axis0.controller.move_incremental(设定值, from_goal_point)
+```
+其中，当运动相对于当前位置时，`from_goal_point` 设定值为 `False`。当运动相对于上次目标位置时，`from_goal_point` 设定值为 `True`。
+
 ### 给定位置范围的位置控制
+
+运行以下代码以启动给定位置范围的位置控制
+```
+axis.controller.config.setpoints_in_cpr = True
+```
+该模式有助于进行连续的增量式位置运动。
 
 ### 速度控制
 ```bash
 odrv0.axis0.controller.config.control_mode = CTRL_MODE_VELOCITY_CONTROL
-odrv0.axis0.controller.vel_setpoint = 设定值 (每秒计数)
+odrv0.axis0.controller.vel_setpoint = 设定值 (计数/秒)
 ```
 
 ### 给定加速度的速度控制
