@@ -97,12 +97,28 @@ odrv0.axis0。controller.current_setpoint = 设定值（安培）
 
 ### 2.1 编码器位置与速度反馈值
 
+```
+odrv0.axis0.encoder.pos_estimate
+odrv0.axis0.encoder.vel_estimate
+```
+
 ### 2.2 电机电流与力矩估计值
+```
+odrv0.axis0.motor.current_control.Iq_setpoint
+odrv0.axis0.motor.current_control.Iq_measured
+```
 
 ## 3 通用系统指令
 
 ### 3.1 保存配置
 
+所有 `[...].config` 的参数均可保存至非易失性存储器。
+
+* `odrv0.save_configuration()`
+* `odrv0.erase_configuration()`
+
 ### 3.2 诊断指令
 
-## 4 无反馈模式配置
+* `odrv0.serial_number`
+* `odrv0.fw_version_major`，`odrv0.fw_version_minor`，`odrv0.fw_version_revision`
+* `odrv0.hw_version_major`，`odrv0.hw_version_minor`，`odrv0.hw_version_revision`
