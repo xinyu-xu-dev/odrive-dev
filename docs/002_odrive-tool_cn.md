@@ -43,6 +43,7 @@ num_samples = 1000
 ```
 
 > <details><summary markdown="span">:warning:  调用 Liveplotter 过程可能出现报错</summary><div markdown="block">
+>
 > **报错信息**
 > ```bash
 > ImportError: No module named '_tkinter', please install the python3-tk package
