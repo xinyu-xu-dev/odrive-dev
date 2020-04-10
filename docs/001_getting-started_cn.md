@@ -153,6 +153,11 @@ odrv0.axis0.motor.config.motor_type = 设定值
 ```
 初始默认值设定为 MOTOR_TYPE_HIGH_CURRENT。
 
+|电机类型|代码值|
+|:---:|:---:|
+|MOTOR_TYPE_HIGH_CURRENT|0|
+|MOTOR_TYPE_GIMBAL|2|
+
 **伺服器精度**
 ```
 odrv0.axis0.encoder.config.cpr = 设定值（计数/转）
