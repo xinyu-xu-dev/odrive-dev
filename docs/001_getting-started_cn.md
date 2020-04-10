@@ -55,10 +55,9 @@ sudo apt install python3 python3-pip
 ```bash
 sudo pip3 install odrive
 ```
-> :warning:
->
-> 安装过程可能出现报错
->
+
+> <details><summary markdown="span">:warning:  安装过程可能出现报错</summary><div markdown="block">
+> 
 > **报错信息**
 > ```bash
 > GET ERROR: Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-4w6I54yu/matplotlib/
@@ -69,6 +68,8 @@ sudo pip3 install odrive
 > ```bash
 > pip install --upgrade setptools
 > ```
+> </div></details>
+
 3. 查看设备管理器规则文件是否已自动更新，否则手动添加
 ```bash
  echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="1209", ATTR{idProduct}=="0d[0-9][0-9]", MODE="0666"' | sudo tee /etc/udev/rules.d/91-odrive.rules
