@@ -49,7 +49,6 @@ sudo pip3 install odrive
 > 安装过程可能出现报错
 >
 > **报错信息**
->
 > ```bash
 > GET ERROR: Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-4w6I54yu/matplotlib/
 > ```
@@ -79,7 +78,7 @@ odrivetool
 <img src="./images/image_001-01.png" width="60%">
 
 通过 USB 线缆连接 ODrive 电机驱动至主机，等待终端返回确认已连接 ODrive 的信息
-```markdown
+```bash
 Connected to ODrive SERIAL_NUMBER as odrv0
 ```
 <img src="./images/image_001-02.png" width="60%">
