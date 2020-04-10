@@ -1,5 +1,16 @@
 # 快速入门
 
+- [README](../README.md)
+    - [快速入门](./001_getting-started_cn.md)
+        - [基础硬件配置](#基础硬件配置)
+        - [基础硬件搭设](#基础硬件搭设)
+        - [下载安装 ODrive 工具包](#下载安装-ODrive-工具包)
+        - [启动 `odrivetool` 工具包](#启动-`odrivetool`-工具包)
+        - [基础命令行](#基础命令行)
+        - [电机的位置控制](#电机的位置控制)
+        - [其他控制模式](#其他控制模式)
+        - [监视时钟](#监视时钟)
+
 ## 基础硬件配置
 
 ### 元件清单
@@ -96,29 +107,29 @@ odrv0.vbus_voltage
 
 **电流极限**
 ```
-odrv0.axis0.motor.config.current_lim = 设定值(A)
+odrv0.axis0.motor.config.current_lim = 设定值（安培）
 ```
-出于安全原因，初始默认值设定为 10A。该设定无法实现强劲的性能，但足以用于确认电机驱动稳定状态。当确认 ODrive 运行成功后，该值可升至 60A 以提高性能。
+出于安全原因，初始默认值设定为 10 安培。该设定无法实现强劲的性能，但足以用于确认电机驱动稳定状态。当确认 ODrive 运行成功后，该值可升至 60 安培以提高性能。
 
 当设定值高于 60A 时，需要通过修改电流范围的命令以修改电流放大器增益。
 
 **电流范围**
 ```
-odrv0.axis0.motor.config.requested_current_range
+odrv0.axis0.motor.config.requested_current_range = 设定值（安培）
 ```
-初始默认值设定为 60A。
+初始默认值设定为 60 安培。
 
 **速度极限**
 ```
-odrv0.axis0.controller.config.vel_limit = 设定值(每秒计数)
+odrv0.axis0.controller.config.vel_limit = 设定值（计数/秒）
 ```
 初始默认值设定为 20000。
 
 **校定电流**
 ```
-odrv0.axis0.motor.config.calibration_current = 设定值(A)
+odrv0.axis0.motor.config.calibration_current = 设定值（安培）
 ```
-初始默认值设定为 10A。
+初始默认值设定为 10 安培。
 
 ### 设置其他硬件参数
 
@@ -126,13 +137,13 @@ odrv0.axis0.motor.config.calibration_current = 设定值(A)
 
 **制动电阻阻值**
 ```
-odrv0.config.brake_resistance = 设定值(Ohm)
+odrv0.config.brake_resistance = 设定值（欧姆）
 ```
-初始默认值设定为 0.5Ohm。
+初始默认值设定为 0.5 欧姆。
 
 **电机极对数**
 ```
-odrv0.axis0.motor.config.pole_pairs = 设定值(对数)
+odrv0.axis0.motor.config.pole_pairs = 设定值（对数）
 ```
 初始默认值设定为 7。
 
@@ -144,7 +155,7 @@ odrv0.axis0.motor.config.motor_type = 设定值
 
 **伺服器精度**
 ```
-odrv0.axis0.encoder.config.cpr = 设定值(每转计数)
+odrv0.axis0.encoder.config.cpr = 设定值（计数/转）
 ```
 初始默认值设定为 8192。
 
@@ -160,11 +171,52 @@ odrv0.reboot()
 
 ## 电机的位置控制
 
+### 完整校准程序
+```
+odrv0.axis0.requested_state = AXIS_STATE_FULL_CALIBRATION_SEQUENCE
+```
+
+### 闭环控制程序
+```
+odrv0.axis0.requested_state = AXIS_STATE_CLOSED_LOOP_CONTROL
+```
 
 ## 其他控制模式
 
+默认的控制模式为基于绝对编码器返回值的不经信号滤波处理的位置控制。除此以外，ODrive 还提供以下控制模式
+
+### 轨迹控制
+
+### 给定位置范围的位置控制
+
+### 速度控制
+```bash
+odrv0.axis0.controller.config.control_mode = CTRL_MODE_VELOCITY_CONTROL
+odrv0.axis0.controller.vel_setpoint = 设定值 (每秒计数)
+```
+
+### 给定加速度的速度控制
+```bash
+odrv0.axis0.controller.config.control_mode = CTRL_MODE_VELOCITY_CONTROL
+axis.controller.config.vel_ramp_rate = 设定值 (计数/秒^2)
+axis.controller.vel_ramp_enable = True
+odrv0.axis0.controller.vel_setpoint = 设定值 (计数/秒)
+```
+
+### 电流控制
+```bash
+odrv0.axis0.controller.config.control_mode = CTRL_MODE_CURRENT_CONTROL
+odrv0.axis0.controller.current setpoint = 设定值 (安培)
+```
+
 ## 监视时钟
 
+每部电机都有一个可配置的监视时钟，可用于 ODrive 控制器连接中断时强制制动。
+```bash
+odrv0.axis0.config.watchdog_timeout = 设定值（秒）
 ```
-sudo apt install python3-tk
-```
+当定值为 0 时，监视时钟功能被禁用。
+
+当设定值为大于 0 的任意值时，电机将在监视时钟记时超时时被强制制动。
+
+监视时钟需用到 `odrv0.axis0.watchdog_feed()` 记时。
