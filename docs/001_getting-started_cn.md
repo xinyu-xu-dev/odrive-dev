@@ -2,18 +2,18 @@
 
 - [README](../README.md)
     - [快速入门](./001_getting-started_cn.md)
-        - [基础硬件配置](#基础硬件配置)
-        - [基础硬件搭设](#基础硬件搭设)
-        - [下载安装 ODrive 工具包](#下载安装-ODrive-工具包)
-        - [启动 `odrivetool` 工具包](#启动-`odrivetool`-工具包)
-        - [基础指令行](#基础指令行)
-        - [电机的位置控制](#电机的位置控制)
-        - [其他控制模式](#其他控制模式)
-        - [监视时钟](#监视时钟)
+        - [1 基础硬件配置](#1-基础硬件配置)
+        - [2 基础硬件搭设](#2-基础硬件搭设)
+        - [3 下载安装 ODrive 工具包](#3-下载安装-ODrive-工具包)
+        - [4 启动 `odrivetool` 工具包](#4-启动-`odrivetool`-工具包)
+        - [5 基础指令行](#5-基础指令行)
+        - [6 电机的位置控制](#6-电机的位置控制)
+        - [7 其他控制模式](#7-其他控制模式)
+        - [8 监视时钟](#8-监视时钟)
 
-## 基础硬件配置
+## 1 基础硬件配置
 
-### 元件清单
+### 1.1 元件清单
 |元件|描述|数据表|数量|
 |:---:|:---:|:---:|:---:|
 |电源|24V||1|
@@ -27,23 +27,23 @@
 |紧固件 2|M3 8mm for plate to enclosure||4|
 |紧固件 3|M4 8mm for plate to motor||4|
 
-### 工具清单
+### 1.2 工具清单
 |工具|描述|数据表|数量|
 |:---:|:---:|:---:|:---:|
 |||||
 
-## 基础硬件搭设
+## 2 基础硬件搭设
 
-### 连接电机
+### 2.1 连接电机
 
-### 连接编码器
+### 2.2 连接编码器
 
-### 连接电机驱动
+### 2.3 连接电机驱动
 
 
-## 下载安装 ODrive 工具包
+## 3 下载安装 ODrive 工具包
 
-### Linux
+### 3.1 Linux
 以 Ubuntu 16.04 系统为例
 
 1. 安装 [Python 3](https://www.python.org/downloads/)
@@ -80,7 +80,7 @@ sudo pip3 install odrive
 echo "PATH=$PATH:~/.local/bin/" >> ~/.bashrc
 ```
 
-## 启动 `odrivetool` 工具包
+## 4 启动 `odrivetool` 工具包
 ---
 开启新终端窗口，键入以下代码启动 ODrive 的主交互工具界面
 ```bash
@@ -94,14 +94,14 @@ Connected to ODrive SERIAL_NUMBER as odrv0
 ```
 <img src="./images/image_001-02.png" width="60%">
 
-## 基础指令行
+## 5 基础指令行
 
-### 查看驱动板供电电压
+### 5.1 查看驱动板供电电压
 ```
 odrv0.vbus_voltage
 ```
 
-### 设定参数极限
+### 5.2 设定参数极限
 
 `设定类指令行 = 设定值`
 
@@ -131,7 +131,7 @@ odrv0.axis0.motor.config.calibration_current = 设定值（安培）
 ```
 初始默认值设定为 10 安培。
 
-### 设置其他硬件参数
+### 5.3 设置其他硬件参数
 
 `设定类命令行 = 设定值`
 
@@ -159,7 +159,7 @@ odrv0.axis0.encoder.config.cpr = 设定值（计数/转）
 ```
 初始默认值设定为 8192。
 
-### 保存参数设定
+### 5.4 保存参数设定
 
 ```
 odrv0.save_configuration()
@@ -169,36 +169,36 @@ odrv0.save_configuration()
 odrv0.reboot()
 ```
 
-## 电机的位置控制
+## 6 电机的位置控制
 
-### 完整校准程序
+### 6.1 完整校准程序
 ```
 odrv0.axis0.requested_state = AXIS_STATE_FULL_CALIBRATION_SEQUENCE
 ```
 
-### 闭环控制程序
+### 6.2 闭环控制程序
 ```
 odrv0.axis0.requested_state = AXIS_STATE_CLOSED_LOOP_CONTROL
 odrv0.axis0.controller.pos setpoint = 设定值
 ```
 
-## 其他控制模式
+## 7 其他控制模式
 
 默认的控制模式为基于绝对编码器返回值的不经信号滤波处理的位置控制。除此以外，ODrive 还提供以下控制模式
 
-- [轨迹控制](#轨迹控制)
-- [给定位置范围的位置控制](#给定位置范围的位置控制)
-- [速度控制](#速度控制)
-- [给定加速度的速度控制](#给定加速度的速度控制)
-- [电流控制](#电流控制)
+- [7.1 轨迹控制](#7.1-轨迹控制)
+- [7.2 给定位置范围的位置控制](#7.2-给定位置范围的位置控制)
+- [7.3 速度控制](#7.3-速度控制)
+- [7.4 给定加速度的速度控制](#7.4-给定加速度的速度控制)
+- [7.5 电流控制](#7.5-电流控制)
 
-### 轨迹控制
+### 7.1 轨迹控制
 
-当电机处于位置控制模式时，使用 `move_to_pos` 和 `move_incremental` 功能对电机进行控制。详细信息请查看 [**使用说明**](#使用说明) 部分。
+当电机处于位置控制模式时，使用 `move_to_pos` 和 `move_incremental` 功能对电机进行控制。详细信息请查看 [**7.1.2 使用说明**](#7.1.2-使用说明) 部分。
 
 该模式可以获得流畅的加速、滑行、减速的运动控制。通过纯位置控制，控制器可以实现尽可能迅速的响应速度。可以使用轨迹对闭环控制器进行调节，从而使其在保持流畅运动的同时减少震荡。
 
-#### 参数设定
+#### 7.1.1 参数设定
 
 ```bash
 odrv0.axis0.trap_traj.config.vel_limit = 设定值 (计数/秒)
@@ -213,7 +213,7 @@ odrv0.axis0.trap_traj.config.A_per_css = 设定值
 `decel_limit` 是最大设计运行减速度。    
 `A_per_css` 是电机运行加速度与电机电流的相关系数。默认值为 0 。该参数为可选设定值，可用于提升系统反应性能。当系统负载改变后，该值需要进行相应调整。
 
-#### 使用说明
+#### 7.1.2 使用说明
 
 `move_to_pos` 功能用于控制电机运行至绝对位置。
 ```bash
@@ -227,7 +227,7 @@ odrv0.axis0.controller.move_incremental(设定值, from_goal_point)
 ```
 其中，当运动相对于当前位置时，`from_goal_point` 设定值为 `False`。当运动相对于上次目标位置时，`from_goal_point` 设定值为 `True`。
 
-### 给定位置范围的位置控制
+### 7.2 给定位置范围的位置控制
 
 运行以下代码以启动给定位置范围的位置控制
 ```
@@ -235,13 +235,13 @@ axis.controller.config.setpoints_in_cpr = True
 ```
 该模式有助于进行连续的增量式位置运动。
 
-### 速度控制
+### 7.3 速度控制
 ```bash
 odrv0.axis0.controller.config.control_mode = CTRL_MODE_VELOCITY_CONTROL
 odrv0.axis0.controller.vel_setpoint = 设定值 (计数/秒)
 ```
 
-### 给定加速度的速度控制
+### 7.4 给定加速度的速度控制
 ```bash
 odrv0.axis0.controller.config.control_mode = CTRL_MODE_VELOCITY_CONTROL
 axis.controller.config.vel_ramp_rate = 设定值 (计数/秒^2)
@@ -249,13 +249,13 @@ axis.controller.vel_ramp_enable = True
 odrv0.axis0.controller.vel_setpoint = 设定值 (计数/秒)
 ```
 
-### 电流控制
+### 7.5 电流控制
 ```bash
 odrv0.axis0.controller.config.control_mode = CTRL_MODE_CURRENT_CONTROL
 odrv0.axis0.controller.current setpoint = 设定值 (安培)
 ```
 
-## 监视时钟
+## 8 监视时钟
 
 每部电机都有一个可配置的监视时钟，可用于 ODrive 控制器连接中断时强制制动。
 ```bash
