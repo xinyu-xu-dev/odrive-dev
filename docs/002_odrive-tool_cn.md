@@ -43,8 +43,7 @@ num_samples = 1000
 ```
 > :warning:
 >
-> 调用 Liveplotter 过程可能出现报错
->
+> <details><summary markdown="span">:warning:  调用 Liveplotter 过程可能出现报错</summary><div markdown="block">
 > **报错信息**
 > ```bash
 > ImportError: No module named '_tkinter', please install the python3-tk package
@@ -54,6 +53,7 @@ num_samples = 1000
 > ```bash
 > sudo apt install python3-tk
 > ```
+> </div></details>
 
 如需在 ODrive 进程实例中直接调用 Liveplotter，需用使用以下代码
 ```bash
