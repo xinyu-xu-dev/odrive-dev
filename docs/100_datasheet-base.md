@@ -4,11 +4,13 @@
 
 ### 1.1 ODrive Board MOSFET Thermistor
 
+NTC(Negative Temperature Coefficient) 10kOhm 3380K
+
 [Datasheet](./datasheets/datasheet_100-01_thermistor_muRata_NCP15XH103F03RC.pdf)
 
 [Application GUide](./datasheets/datasheet_100-02_thermistor-application-guide.pdf)
 
-[NTC 10KOHM 3380K](https://www.digikey.com/product-detail/en/murata-electronics-north-america/NCP15XH103F03RC/490-4801-1-ND/1644682)
+[Store](https://www.digikey.com/product-detail/en/murata-electronics-north-america/NCP15XH103F03RC/490-4801-1-ND/1644682)
 
 [Community Reference](https://discourse.odriverobotics.com/t/thermistors-on-the-odrive/813)
 
@@ -22,10 +24,6 @@ The mapping in odrivetool for the thermistors are:
 
 For instance, to get the voltage for the M0 thermistor in odrivetool by `odrv0.get_adc_voltage(15)`
 
-### 1.2 ODrive Motor Winding Themistor
-
-NTC (Negative Temperature Coefficient) 10kOhm 1% 3435
-
 > <details><summary markdown="span"> What do the thermistor specifications mean ?</summary><div markdown="block">
 > 
 > * **Resistance** This is the thermistor resistance at the temperature specified by the manufacturer, often 25°C.
@@ -35,6 +33,10 @@ NTC (Negative Temperature Coefficient) 10kOhm 1% 3435
 > * **B (or Beta) constant** A value that represents the relationship between the resistance and temperature over a specified temperature range. For example, "3380 25/50" indicates a beta constant of 3380 over a temperature range from 25°C to 50°C.
 > 
 > </div></details>
+
+### 1.2 ODrive Motor Winding Themistor
+
+NTC(Negative Temperature Coefficient) 10kOhm 1% 3435
 
 ### 1.3 ODrive Board Brake Resistor
 
@@ -54,3 +56,20 @@ NTC (Negative Temperature Coefficient) 10kOhm 1% 3435
 |Max Current|65A|
 |Max Voltage|32V|
 |Weight|420g|
+
+### 1.5 Encoder
+
+CUI-AMT102
+
+[Datasheet](./datasheets/datasheet_100-03_encoder_CUI-AMT102_assembly-instruction.pdf)
+
+[Assembly Instruction](./datasheets/datasheet_100-04_encoder_CUI-AMT102_assembly-instruction.pdf)
+
+[Store](https://www.digikey.com/product-detail/en/cui-inc/AMT102-V/102-1307-ND/827015)
+
+|Specification|Value|
+|:---:|:---:|
+|Resolution|8192 (count/rev)|
+|Noise|0.0127 (deg)|
+|Max Speed|7500 (rpm)|
+|Interfaces|Quadrature; Index;|
