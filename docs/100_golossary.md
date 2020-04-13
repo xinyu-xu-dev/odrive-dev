@@ -1,3 +1,7 @@
+# Golossary 词汇库
+
+- [README](../README.md)
+    - [Golossary 词汇库](./100_golossary.md)
 
 |电机类型|代码值|
 |:---:|:---:|
