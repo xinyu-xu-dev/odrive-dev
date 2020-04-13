@@ -45,3 +45,12 @@ NTC (Negative Temperature Coefficient) 10kOhm 1% 3435
 > * **[RKM code](https://en.wikipedia.org/wiki/RKM_code)** 
 > 
 > </div></details>
+
+### 1.4 ODrive Motor
+
+|Specification|Value|
+|:---:|:---:|
+|Current Constant Kv|270 (rpm/v)|
+|Max Current|65A|
+|Max Voltage|32V|
+|Weight|420g|

@@ -27,6 +27,7 @@
 |紧固件 2|M3 8mm for plate to enclosure||4|
 |紧固件 3|M4 8mm for plate to motor||4|
 
+
 ### 1.2 工具清单
 |工具|描述|数据表|数量|
 |:---:|:---:|:---:|:---:|
