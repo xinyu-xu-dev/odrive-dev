@@ -17,7 +17,7 @@ NTC(Negative Temperature Coefficient) 10kOhm 3380K
 
 [Community Reference](https://discourse.odriverobotics.com/t/thermistors-on-the-odrive/813)
 
-<img src="./images/image_100-01.png" width=200>
+<img src="./images/image_101-01.png" width=200>
 
 The mapping in odrivetool for the thermistors are:
 
@@ -26,6 +26,13 @@ The mapping in odrivetool for the thermistors are:
 * Brake resistor FETs: channel 5
 
 For instance, to get the voltage for the M0 thermistor in odrivetool by `odrv0.get_adc_voltage(15)`
+
+A 3rd order polynomial fit of voltage-to-temperature equation has been obtained by Oskar Weigl. [script](https://github.com/madcowswe/ODrive/blob/devel/analysis/thermistors.py)
+
+<img src="./images/image_101-02.jpg" width=500>
+
+The coefficients from this 3rd order polynomial fit, from high to low order, are:
+[ 363.0172658 -459.19773008 308.29273921 -28.12731452]
 
 > <details><summary markdown="span"> What do the thermistor specifications mean ?</summary><div markdown="block">
 > 
