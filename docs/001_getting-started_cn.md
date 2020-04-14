@@ -23,9 +23,15 @@
 |电机壳面板|aluminium|[link](https://odriverobotics.com/shop/nema23-faceplate-for-d5065-motor)|1|
 |编码器|CUI AMT102-V|[link](https://odriverobotics.com/shop/cui-amt-102)|1|
 |热缩管|||3|
-|紧固件 1|M3 8mm for encoder to enclosure||2|
-|紧固件 2|M3 8mm for plate to enclosure||4|
-|紧固件 3|M4 8mm for plate to motor||4|
+|紧固件 1|M2 8mm 用于组装制动电阻与线缆||2|
+|紧固件 2|M3 8mm 用于组装编码器与电机壳||2|
+|紧固件 3|M3 8mm 用于组装电机壳面板与电机壳||4|
+|紧固件 4|M4 8mm 用于组装电机与电机壳||4|
+|线缆 1|用于连接电源与驱动板||2|
+|线缆 2|用于连接驱动板与制动电阻||2|
+|线缆 3|用于连接驱动板与电机||3|
+|线缆 4|用于连接电机热敏电阻与驱动板||2|
+
 
 
 ### 1.2 工具清单
