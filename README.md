@@ -15,6 +15,7 @@
 
 ## ODrive Development Memorandum
 
-- [Golossary 词汇库](/docs/100_golossary.md)
-- [Datasheet Base 数据文档库](/docs/101_datasheet-base.md)
-- [Measurement 测量数据](/docs/102_measurement.md)
+- [Golossary 词汇库](/docs/101_golossary.md)
+- [Datasheet Base 数据文档库](/docs/102_datasheet-base.md)
+- [Assembly Instruction 组装指导](/docs/103_assembly-instruction.md)
+- [Measurement 测量数据](/docs/104_measurement.md)
