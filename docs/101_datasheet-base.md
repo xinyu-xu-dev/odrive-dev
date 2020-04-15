@@ -9,6 +9,16 @@
 
 NTC(Negative Temperature Coefficient) 10kOhm 3380K
 
+> <details><summary markdown="span"> What do the thermistor specifications mean ?</summary><div markdown="block">
+> 
+> * **Resistance** This is the thermistor resistance at the temperature specified by the manufacturer, often 25°C.
+> 
+> * **Tolerance** Indicates how much the resistance can vary from the specified value. Usually expressed in percent (e.g. 1%, 10%, etc). For example, if the specified resistance at 25°C for a thermistor with 10% tolerance is 10,000 ohms then the measured resistance at that temperature can range from 9,000 ohms to 11000 ohms.
+> 
+> * **B (or Beta) constant** A value that represents the relationship between the resistance and temperature over a specified temperature range. For example, "3380 25/50" indicates a beta constant of 3380 over a temperature range from 25°C to 50°C.
+> 
+> </div></details>
+
 [Datasheet](./datasheets/datasheet_100-01_thermistor_muRata_NCP15XH103F03RC.pdf)
 
 [Application GUide](./datasheets/datasheet_100-02_thermistor-application-guide.pdf)
@@ -33,16 +43,6 @@ A 3rd order polynomial fit of voltage-to-temperature equation has been obtained 
 
 The coefficients from this 3rd order polynomial fit, from high to low order, are:
 [ 363.0172658 -459.19773008 308.29273921 -28.12731452]
-
-> <details><summary markdown="span"> What do the thermistor specifications mean ?</summary><div markdown="block">
-> 
-> * **Resistance** This is the thermistor resistance at the temperature specified by the manufacturer, often 25°C.
-> 
-> * **Tolerance** Indicates how much the resistance can vary from the specified value. Usually expressed in percent (e.g. 1%, 10%, etc). For example, if the specified resistance at 25°C for a thermistor with 10% tolerance is 10,000 ohms then the measured resistance at that temperature can range from 9,000 ohms to 11000 ohms.
-> 
-> * **B (or Beta) constant** A value that represents the relationship between the resistance and temperature over a specified temperature range. For example, "3380 25/50" indicates a beta constant of 3380 over a temperature range from 25°C to 50°C.
-> 
-> </div></details>
 
 ### 1.2 ODrive Motor Winding Themistor
 
