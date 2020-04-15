@@ -62,6 +62,7 @@ NTC(Negative Temperature Coefficient) 10kOhm 1% 3435
 
 |Specification|Value|
 |:---:|:---:|
+|Kt|(3/2)/(sqrt(3)*(1/60)*2*PI())|
 |Current Constant Kv|270 (rpm/v)|
 |Max Current|65A|
 |Max Voltage|32V|
@@ -71,7 +72,7 @@ NTC(Negative Temperature Coefficient) 10kOhm 1% 3435
 
 CUI-AMT102
 
-[Datasheet](./datasheets/datasheet_100-03_encoder_CUI-AMT102_assembly-instruction.pdf)
+[Datasheet](./datasheets/datasheet_100-03_encoder_CUI-AMT102_datasheet.pdf)
 
 [Assembly Instruction](./datasheets/datasheet_100-04_encoder_CUI-AMT102_assembly-instruction.pdf)
 
