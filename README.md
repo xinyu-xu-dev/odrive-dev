@@ -12,6 +12,7 @@
 - [4 Interfaces 通信接口](/docs/004_interfaces_cn.md)
 - [5 Encoders 编码器](/docs/005_encoders_cn.md)
 - [6 Control and Tuning 控制与整定](/docs/006_control-and-tuning_cn.md)
+- [7 Troubleshooting 故障排查](/docs/007_troubleshooting_cn.md)
 
 ## ODrive Development Memorandum
 
