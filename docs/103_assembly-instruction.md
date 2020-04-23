@@ -26,7 +26,7 @@
 |Ferrule 1<br>套管 1|For make cable 1<br>用于组装线缆 1||2|
 |Ferrule 2<br>套管 2|For make cable 2<br>用于组装线缆 2||2|
 |Fork Ferrule<br>叉型套管|For make cable 2<br>用于组装线缆 2||2|
-|Heat Shrink<br>热缩管|For make cable 3<br>用于组装线缆 3||3|
+|Heat Shrink<br>热缩管|Diameter 5mm For make cable 3<br>直径 5mm 用于组装线缆 3||3|
 
 ### 1.2 Tool List 工具清单
 
